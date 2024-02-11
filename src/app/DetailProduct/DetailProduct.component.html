@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="name">
+    <label>{{pro.pro_Name}}</label>
+  </div>
+  <div class="img">
+    <div>
+      <img style="width: 60%;" [src]="pro.products_img[0].url" alt="">
+    </div>
+    <div class="listImg">
+      <img *ngFor="let item of pro.products_img"  [src]="item.url" alt="">
+    </div>
+  </div>
+  <div class="des">description</div>
+  <div class="buy">
+    <p style="text-decoration: line-through;" ng *ngIf="pro.pro_Discount!=0">Giá Cũ : {{pro.pro_Price.toLocaleString ('vi-VN', {style: 'currency', currency: 'VND'})}}</p>
+    <p ng *ngIf="pro.pro_Discount==0">Giá : {{pro.pro_Price.toLocaleString ('vi-VN', {style: 'currency', currency: 'VND'})}}</p>
+    <p style="color: rgb(160, 0, 0);" ng *ngIf="pro.pro_Discount!=0"> Giá Mới : {{(pro.pro_Price - (pro.pro_Discount/100*pro.pro_Price)).toLocaleString ('vi-VN', {style: 'currency', currency: 'VND'})}}</p>
+    <div>
+      <button type="button" class="btn btn-outline-primary" (click)="AddToCart(pro.pro_id)">
+        Add to cart
+        <i class="bi bi-cart-plus"></i>
+      </button>
+      <button type="button" class="btn btn-outline-primary">Buy Now</button>
+    </div>
+  </div>
+</div>

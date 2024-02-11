@@ -1,0 +1,15 @@
+
+      <div class="container">
+        <div class="title">
+            <h1>{{data.product.pro_Name}}</h1>
+        </div>
+        <div class="imgdetail">
+            <div class="image" *ngFor="let i of data.product.products_img" >
+                <img [src]="i.url" [alt]="i.file.name" class="img-fluid rounded">
+                <label>{{i.file.name}}</label>
+            </div>
+
+        </div>
+     
+        
+      </div>

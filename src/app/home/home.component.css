@@ -1,0 +1,86 @@
+.content_home{
+    width: 75%;
+    margin-left: 10%;
+
+    display: grid;
+    grid-template-columns: 20% 60% 20% ;
+    grid-template-rows: 300px minmax(300px,900px) 100px;
+    grid-template-areas: 
+                "lefts heard rights"
+                "main main main"
+                "foot foot foot";
+                gap: 10px;
+}
+.advantage
+{
+    grid-area:heard;
+    background-color: red;
+}
+.foot
+{
+    grid-area: foot;
+    background-color: blue;
+}
+.right
+{
+    grid-area: rights;
+    background-color: black;
+}
+.category
+{
+    grid-area:lefts;
+    background-color: blue;
+}
+.main
+{  
+    grid-area:main;
+    background-color: #FFF;
+    grid-template-rows: 300px 300px 300px;
+    gap: 2%;
+    margin-top: 5px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+.main div 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:300px;
+    gap: 10px;
+    filter: drop-shadow(0rem 1rem 2rem var(--color-dark-variant));
+}
+.main div a
+{
+    position: relative;
+    background-color: #FFF;
+    text-align: center;
+    border-radius: 5px; 
+}
+.main div a label
+{
+    position: absolute;
+    background-color: rgb(208, 28, 28);
+    top: -2px;
+    left: -5px;
+    width: 80px;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 0px 10px 10px 0px;
+    color: rgb(255, 255, 255);
+
+}
+.main div a img
+{
+    margin-top: 20px;
+    width: 70%;
+}
+.newPrice
+{
+    color: rgb(200, 29, 29);
+}
+.OldPrice
+{
+    text-decoration: line-through; 
+}
+
+

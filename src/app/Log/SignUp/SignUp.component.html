@@ -1,0 +1,54 @@
+
+  <form class="form" [formGroup]="FormSignUp" (ngSubmit)="submit()">
+    <div>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text" required >
+        <mat-error *ngIf="FormSignUp.controls['name'].invalid && FormSignUp.controls['name'].touched">
+        please enter a valid Name
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field >
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" type="email" required >
+        <mat-error *ngIf="FormSignUp.controls['email'].invalid && FormSignUp.controls['email'].touched">
+          please enter a valid E-mail
+          </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field >
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phone" type="tel" required >
+        <mat-error *ngIf="FormSignUp.controls['phone'].invalid && FormSignUp.controls['phone'].touched">
+          please enter a valid E-mail
+          </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field >
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="{{hidePassword?'password':'text'}}" required placeholder="more than 6 byte" >
+        <mat-error *ngIf="FormSignUp.controls['password'].invalid && FormSignUp.controls['password'].touched">
+          please enter a valid Password
+          </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field >
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="confirmpassword" type="{{hidePassword?'password':'text'}}" required placeholder="more than 6 byte" >
+          <mat-error *ngIf="FormSignUp.controls['confirmpassword'].invalid && FormSignUp.controls['confirmpassword'].touched">
+            please enter password again
+            </mat-error>
+      </mat-form-field>
+  
+    </div>
+    <div>
+      <button mat-raised-button color="primary" [disabled]="!FormSignUp.valid"> SignUp</button>
+    </div>        
+    
+  </form>
+  

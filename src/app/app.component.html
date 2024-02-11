@@ -1,0 +1,221 @@
+<!-- <div>
+  <nav class="navbar navbar-expand-lg bg-primary " style="color: rgb(0, 0, 0);">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        
+            <div style="display: flex; margin-left: 100px;" *ngIf="isCustomerLogin">
+              <div>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="">
+                    <mat-icon aria-label="Example home icon" fontIcon="home"></mat-icon>
+                  </a>
+                </li>
+              </div>
+              <div class="dashboard">
+                <button mat-button routerLink="/customer/dashboard">Dashboard</button>
+              </div>
+              <div class="cart">
+                <button mat-button routerLink="/customer/cart" >Cart</button>
+              </div>
+              <div class="order">
+                <button mat-button routerLink="/customer/order">Order</button>
+              </div>
+              <div class="container-fluid" style="width: 400px;">
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search"
+                    aria-label="Search">
+                </form>
+              </div>
+              <i class="bi bi-person-fill-add"></i>
+
+            </div>
+            <div *ngIf="isAdminLogin">
+            <button mat-button routerLink="admin/dashboard" routerLinkActive="active">Dashborad</button>
+            <button mat-button  routerLink="admin/productmanagement">ProductsManager</button>
+
+            <button mat-button [matMenuTriggerFor]="cusManager" routerLink="/admin/customerManager" >Customer Manager</button>
+            <mat-menu #cusManager="matMenu">
+              <button mat-menu-item routerLink="/admin/customerManager/infor">Information</button>
+              <button mat-menu-item routerLink="/admin/customerManager/chat">Chat</button>
+            </mat-menu>
+
+            <button mat-button routerLink="/admin/manaorder">Order Management</button>
+          </div>
+        </ul>
+      </div>
+
+
+      <div>
+        <div *ngIf="!isCustomerLogin&&!isAdminLogin">
+          <button mat-button [matMenuTriggerFor]="afterMenu">
+            Login
+            <i class="fa-solid fa-user-plus"></i>
+          </button>
+          <mat-menu #afterMenu="matMenu" xPosition="after">
+            <button mat-menu-item routerLink="/login">Login</button>
+            <button mat-menu-item routerLink="/signup">Signup</button>
+          </mat-menu>
+        </div>
+        <div *ngIf="isCustomerLogin||isAdminLogin">
+          <button mat-button [matMenuTriggerFor]="afterMenu">{{UserName}}</button>
+          <mat-menu #afterMenu="matMenu" xPosition="after">
+            <button mat-menu-item>Information</button>
+            <button mat-menu-item (click)="Logout()">Logout</button>
+          </mat-menu>
+        </div>
+
+      </div>
+
+    </div>
+  </nav>
+</div> -->
+<div *ngIf="isCustomerLogin || !isCustomerLogin && !isAdminLogin" >
+  <mat-toolbar class="headerWeb">
+    <mat-toolbar-row>
+      <div class="header1">
+        <a id="home" routerLink="home">
+          <i class="bi bi-house"></i>
+          <h3>Home</h3>
+        </a>
+          <a routerLink="/customer/">
+            <i class="bi bi-layout-text-window-reverse"></i>
+            <h3>Category</h3>
+          </a>
+          <a routerLink="/Cart">
+            <i class="bi bi-bag-fill"></i>
+            <h3>Cart</h3>
+          </a>
+          <div class="search">
+            <button (click)="Search(key)">
+              <i class="bi bi-search"></i>
+            </button>
+              <input type="text" id="search" placeholder="Search" [(ngModel)]="key" (keyup)="keyup(key)">
+              <button (click)="Xoa()" [hidden]="ishidden">
+                <i  class="bi bi-x"></i>
+              </button>
+              
+              <div class="data"  [style.display]="isDisable">
+                <span>Kết quả tìm kiếm</span>
+                <div class="listpro" *ngIf="Products.length!=0">
+                  <a [routerLink]="['/detail',item.pro_id]" (click)="Nhan()" *ngFor="let item of Products">
+                    <img [src]="item.products_img[0].url" alt="">
+                    <p>{{item.pro_Name}}<br>
+                      <label style="color: rgb(158, 0, 0);">{{(item.pro_Price-((item.pro_Discount/100)*item.pro_Price)).toLocaleString ('vi-VN', {style: 'currency', currency: 'VND'})}}</label>
+                    </p>
+                    
+                  </a>
+                </div>
+                <div *ngIf="Products.length==0">
+                 <p>ko có kết quả</p>
+                </div>
+              
+              </div>
+          </div>
+            <a routerLink="/customer/">
+              <i class="bi bi-clipboard-check-fill"></i>
+              <h3>Order</h3>
+            </a>
+            <a routerLink="/customer/">
+              <i class="bi bi-chat-square-text-fill"></i>
+              <h3>Chat</h3>
+            </a>
+      </div>
+    <div *ngIf="!isCustomerLogin&&!isAdminLogin">
+      <button mat-button [matMenuTriggerFor]="afterMenu">
+        <i class="bi bi-person-fill-add"></i>
+        </button>
+      <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item routerLink="login">Login</button>
+        <button mat-menu-item routerLink="/signup">Signup</button>
+      </mat-menu>
+    </div>
+    <div *ngIf="isCustomerLogin">
+      <button mat-button [matMenuTriggerFor]="afterMenu">
+        <div style="width: 50px; margin-bottom: -10px;">
+          <i style="width: 100%; size: 100%;" class="bi bi-person-circle"></i>
+        </div>
+        <div>
+          {{UserName}}
+        </div>
+       </button>
+      <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item>Information</button>
+        <button mat-menu-item (click)="Logout()"><i class="bi bi-box-arrow-right"></i>Logout</button>
+      </mat-menu>
+    </div>
+    </mat-toolbar-row>    
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+</div>
+
+<div *ngIf="isAdminLogin" class="container_admin">
+  <aside>
+    <div class="toggle">
+      <div class="logo">
+        <img src="assets/logo.jpg" alt="">
+        <h2>Vu <Span class="danger">Hieu</Span></h2>
+      </div>
+      <div class="close" id="close-btn">
+        <i class="bi bi-x"></i>
+      </div>
+    </div>
+    <div class="sidebar">
+      <a routerLink="" routerLinkActive="active" (click)="Click($event)">
+        <i class="bi bi-layout-wtf"></i>
+          <h3>Dashboard</h3>
+      </a>
+      <a routerLink="admin/CustomerManagement" (click)="Click($event)" >
+        <i class="bi bi-people"></i>
+          <h3>User</h3>
+      </a>
+      <a routerLink="" (click)="Click($event)">
+        <i class="bi bi-clock-history"></i>
+          <h3>History</h3>
+      </a>
+      <a routerLink="" (click)="Click($event)">
+        <i class="bi bi-chat-left"></i>
+          <h3>Chat</h3>
+      </a>
+      <a routerLink="admin/productmanagement" (click)="Click($event)">
+        <i class="bi bi-table"></i>
+          <h3>Table</h3>
+      </a>
+      <a routerLink="admin/productmanagement" (click)="Click($event)">
+        <i class="bi bi-gear"></i>
+        <h3>Setting</h3>
+      </a>
+      <a routerLink="login" (click)="Click($event)">
+        <i class="bi bi-box-arrow-right"></i>
+        <h3>Logout</h3>
+      </a>
+    </div>
+    
+  </aside>
+  <div class="main">
+    <div class="header">
+        <div class="name">
+          <h1> {{title}}</h1>
+        </div>
+        <div class="account">
+          <i class="bi bi-person-circle"></i>
+          <h3> {{UserName}}</h3>
+        </div> 
+        </div>
+    
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+    
+  </div>
+
+  

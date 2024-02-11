@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+html, body { height: 100%; }
+/* body { margin: 0; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, "Helvetica Neue", sans-serif;} */
+:host
+{
+  --color-primary: #6C9BCE; /* Màu chính */
+--color-danger: #FE0060; /* Màu nguy hiểm */
+--color-success: #19BC85; /* Màu thành công */
+--color-warning: #E7D060; /* Màu cảnh báo */
+--color-white: #fff; /* Màu trắng */
+--color-info-dark: #7d8da1; /* Màu thông tin tối */
+--color-dark: #363949; /* Màu tối */
+--color-light: rgba(132, 139, 200, 0.18); /* Màu nhẹ */
+--color-dark-variant: #677483; /* Biến thể màu tối */
+--color-background: #f6f6f9; /* Màu nền */
+
+/* Định nghĩa bán kính viền */
+--card-border-radius: 2rem; /* Bán kính viền thẻ */
+--border-radius-1: 0.4rem; /* Bán kính viền 1 */
+--border-radius-2: 1.2rem; /* Bán kính viền 2 */
+
+/* Định nghĩa đệm */
+--card-padding: 1.8rem; /* Đệm thẻ */
+--padding-1: 1.2rem; /* Đệm 1 */
+
+/* Định nghĩa bóng hộp */
+--box-shadow: 0 2rem 3rem var(--colot-light); /* Bóng hộp */
+
+}
+:root
+{
+  /* Định nghĩa các biến màu */
+--color-primary: #6C9BCE; /* Màu chính */
+--color-danger: #FE0060; /* Màu nguy hiểm */
+--color-success: #19BC85; /* Màu thành công */
+--color-warning: #E7D060; /* Màu cảnh báo */
+--color-white: #fff; /* Màu trắng */
+--color-info-dark: #7d8da1; /* Màu thông tin tối */
+--color-dark: #363949; /* Màu tối */
+--color-light: rgba(132, 139, 200, 0.18); /* Màu nhẹ */
+--color-dark-variant: #677483; /* Biến thể màu tối */
+--color-background: #f6f6f9; /* Màu nền */
+
+/* Định nghĩa bán kính viền */
+--card-border-radius: 2rem; /* Bán kính viền thẻ */
+--border-radius-1: 0.4rem; /* Bán kính viền 1 */
+--border-radius-2: 1.2rem; /* Bán kính viền 2 */
+
+/* Định nghĩa đệm */
+--card-padding: 1.8rem; /* Đệm thẻ */
+--padding-1: 1.2rem; /* Đệm 1 */
+
+/* Định nghĩa bóng hộp */
+--box-shadow: 0 2rem 3rem var(--color-light); 
+/* --box-shadow: drop-shadow( 0 2rem 3rem var(--color-info-dark)); */
+
+}
+body
+{
+  width: 100vw;
+  height: 100vh;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.8rem;
+  user-select: none;
+  overflow-x: hidden;
+  color: var(--color-dark);
+  background-color: var(--color-background);
+
+}
+:root
+{
+  /* Định nghĩa các biến màu */
+--color-primary: #6C9BCE; /* Màu chính */
+--color-danger: #FE0060; /* Màu nguy hiểm */
+--color-success: #19BC85; /* Màu thành công */
+--color-warning: #E7D060; /* Màu cảnh báo */
+--color-white: #fff; /* Màu trắng */
+--color-info-dark: #7d8da1; /* Màu thông tin tối */
+--color-dark: #363949; /* Màu tối */
+--color-light: rgba(132, 139, 200, 0.18); /* Màu nhẹ */
+--color-dark-variant: #677483; /* Biến thể màu tối */
+--color-background: rgb(221, 221, 221); /* Màu nền */
+
+/* Định nghĩa bán kính viền */
+--card-border-radius: 2rem; /* Bán kính viền thẻ */
+--border-radius-1: 0.4rem; /* Bán kính viền 1 */
+--border-radius-2: 1.2rem; /* Bán kính viền 2 */
+
+/* Định nghĩa đệm */
+--card-padding: 1.8rem; /* Đệm thẻ */
+--padding-1: 1.2rem; /* Đệm 1 */
+
+/* Định nghĩa bóng hộp */
+--box-shadow: 0 2rem 3rem var(--colot-light); /* Bóng hộp */
+
+}
+.dark-mode-variables
+{
+  --color-background:#181a1e;
+  --color-white:#322d2d;
+  --color-dark:#edeffd;
+  --color-dark-variant:#a3bdcc;
+  --color-light:rgba(0,0,0,0.4);
+  --box-shadow: 0 2rem 3rem (var(--color-light));
+}
+.headerWeb
+{
+  position: fixed;
+}

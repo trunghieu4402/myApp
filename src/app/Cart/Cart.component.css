@@ -1,0 +1,118 @@
+.containerCart
+{
+    width: 100%;
+    min-height: 600px;
+    /* margin-left: 10%; */
+    
+}
+.Cart
+{   
+    min-height: 600px;
+    /* align-items: center; */
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    border-radius: 10px;
+    background-color: #FFF;
+}
+.item
+{
+    display: grid;
+    grid-template-columns: 5% 65% 20% 10%;
+    text-align: center;
+    justify-content: center;
+    grid-row: 10px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 5px;
+    background-color: #FFF;
+    filter: drop-shadow(0rem 1rem 2rem var(--color-dark-variant));
+}
+.item input
+{
+    width: 30px;
+     border: none;
+      text-align: center;
+}
+.item div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    border: none;
+}
+.item a
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: start;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+
+}
+.item a img
+{
+    grid-row: 1/4;
+}
+.item a p
+{
+    text-align: start;
+    justify-content: center;
+}
+.item div button
+{
+    font-size: 10px;
+}
+.item button
+{
+   border-radius: 5px;
+}
+/* .Cart div
+{
+
+    margin: 4%;
+    text-align:start ;
+    border: 1px solid black;
+} */
+.Cart h2
+{
+
+    font-size: 24px;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(144, 0, 0);
+    text-decoration: dashed;
+    color: #FFF;
+    border-radius: 10px 10px 0px 0px;
+}
+.Order
+{  
+    height: 70px;
+    width:61%;
+    margin-left:20%;
+    /* margin-left: 8%; */
+    bottom: 100px;
+    bottom: 0px;
+    position: fixed;
+
+    border-radius: 10px 10px 0px 0px;
+    background-color: rgb(243, 243, 243);
+    filter: drop-shadow(0rem 1rem 2rem var(--color-dark-variant));
+     
+    font-size: 18px;
+}
+.Order button
+{
+    align-items: end;
+    justify-content: end;
+    text-align: center;
+    width: 40%;
+    margin-left: 60%;
+}
+.headerWeb
+{
+    position: fixed;
+}

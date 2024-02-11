@@ -1,0 +1,82 @@
+
+.add_product
+{
+    position: relative;
+    background-color: #FFF;
+    filter: drop-shadow(10px 10px 20px #6f7071);
+}
+.header
+{
+    display: flex;
+    background-color: #dee1e3;
+    justify-content: space-between;
+}
+.close
+{
+    position: relative;
+    font-size: 1.5rem; 
+}
+
+.close a i
+{
+    color: rgb(91, 6, 6);
+}
+.close a i:hover
+{
+    color: rgb(156, 29, 29);
+    font-size: 2rem;
+}
+
+.form
+{
+    display: flex;
+    margin: 1rem;
+}
+.information
+{
+    width: 50%;
+    margin-right: 1rem;
+}
+.image
+{
+    width: 50%;
+    border: 1px solid black;
+    min-width: 250px;
+}
+.btn
+{
+    display: flex;
+   justify-content: center;
+}
+.btn button
+{
+    width: 7rem;
+    margin: 1rem;
+}
+.preview
+{
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    gap: 10px;
+
+    background-color: red;
+}
+.img_pre i:hover
+{
+    color: red;
+    cursor: pointer;
+
+}
+@media(max-width:1064px)
+{
+.preview
+{
+  display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 10px;
+
+    background-color:blue;
+
+}
+
+}

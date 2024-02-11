@@ -1,0 +1,98 @@
+.container
+{
+    width: 80%;
+    margin-left: 10%;
+    display: grid;
+   
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 50px 450px 100px;
+    grid-template-areas: "header header"
+                            "img buy"
+                            "des buy";
+                            gap: 10px;
+
+}
+.name
+{
+    grid-area: header;
+    font-size: 25px;
+    font-family:'Times New Roman', Times, serif;
+    border-bottom: 2px black solid;
+    text-align: start;
+    align-items: center;
+
+}
+.name label
+{
+  
+    bottom: 10px;
+}
+.img
+{
+    grid-area: img;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns:80% 15%;
+    grid-template-rows: 100% ;
+    gap: 2.5%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+
+}
+.buy
+{
+    position: relative;
+ 
+    border: 1px solid black;
+    grid-area: buy;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.des
+{
+    border: 1px solid black;
+    grid-area: des;
+}
+.img div img
+{
+    height: 80%;
+    border-radius: 5px;
+    border: 1px solid #FFF;
+}
+.listImg
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.listImg img
+{
+    border-radius: 5px;
+    width: 60%;
+    gap: 3px;
+}
+.buy div
+{
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.buy div button
+{
+    border: none;
+    border-radius: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    bottom: 5px;
+    margin-top: 10px;
+    justify-content: center;
+}

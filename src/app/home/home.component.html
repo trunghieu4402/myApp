@@ -1,0 +1,20 @@
+<div class="content_home">
+  <div class="advantage">Quang cao</div>
+  <div class="right">Right</div>
+  <div class="category">Category</div>
+  <div class="main">
+    <div>
+      <a *ngFor="let item of ListProduct" id="cart" style="text-decoration: none; color: black;" [routerLink]="['/detail',item.pro_id]">
+        <label ng *ngIf="item.pro_Discount!=0">{{item.pro_Discount}} %</label>
+        <img [src]="item.products_img[0].url" alt="">
+        <p>{{item.pro_Name}}</p>
+          <p class="OldPrice" ng *ngIf="item.pro_Discount!=0">Giá Cũ : {{item.pro_Price.toLocaleString ('vi-VN', {style: 'currency', currency: 'VND'})}}</p>
+          <p ng *ngIf="item.pro_Discount==0">Giá : {{item.pro_Price.toLocaleString ('vi-VN', {style: 'currency', currency: 'VND'})}}</p>
+          <p class="newPrice" ng *ngIf="item.pro_Discount!=0"> Giá Mới : {{(item.pro_Price - (item.pro_Discount/100*item.pro_Price)).toLocaleString ('vi-VN', {style: 'currency', currency: 'VND'})}}</p>
+      </a>
+    </div>
+  </div>
+  <div class="foot">
+    VŨ Trung Hiếu
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="containerCart">
+  <div class="Cart" *ngIf="isCustomerLogin">
+    <h2>Your Cart</h2>
+    <mat-checkbox style="text-align: start;justify-content: start; width: 100%;" color="warn" [(ngModel)]="CheckAll" (ngModelChange)="PickAllItem($event)"  >Pick All</mat-checkbox>
+    <div class="item" *ngFor="let i of ListItems">
+
+      <mat-checkbox color="warn" [(ngModel)]="i.checked" (ngModelChange)="update($event,i)"></mat-checkbox>
+      <a [routerLink]="['/detail',i.product.pro_id]" style="color: black;">
+        <img style="width: 100px;" [src]="i.product.products_img[0].url" alt="">
+        <p style="margin-top: 20px;">{{i.product.pro_Name}}</p>
+        <p style="text-decoration: line-through;"> Giá Cũ : {{i.product.pro_Price.toLocaleString ('vi-VN', {style:
+          'currency', currency: 'VND'})}}</p>
+        <p style="color: rgb(171, 0, 0);"> {{(i.product.pro_Price -
+          (i.product.pro_Discount/100*i.product.pro_Price)).toLocaleString ('vi-VN', {style: 'currency', currency:
+          'VND'})}}</p>
+      </a>
+      <div>
+        <button type="button" class="btn btn-outline-primary" (click)="remove(i)"><i class="bi bi-dash-lg"></i></button>
+        <input readonly type="text" value={{i.quantity}}>
+        <button type="button" class="btn btn-outline-primary" (click)="Additem(i)"><i class="bi bi-plus-lg"></i></button>
+      </div>
+
+      <button style="border: none; border-radius: 0px 5px 5px 0px;" type="button" (click)="RemoveItem(i)" class="btn btn-outline-danger"><i
+          class="bi bi-trash3"></i></button>
+    </div>
+  </div>
+    <div class="Order">
+      <label>Tạm Tính :  {{Total_Price.toLocaleString ('vi-VN', {style: 'currency', currency:
+        'VND'})}}</label>
+        <p></p>
+    
+      <button type="button" class="btn btn-outline-primary" [disabled]="DatHang" (click)="Order()">Đặt Hàng</button>
+    </div>
+  <div *ngIf="!isCustomerLogin">
+    <h3>You Shoud Login</h3>
+
+  </div>
+</div>

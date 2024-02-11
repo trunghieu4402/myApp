@@ -1,0 +1,44 @@
+<!-- <div class="card text-center red" style="width: 100%;">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link black"  aria-current="page" routerLink="product" >Danh Sách Sản Phẩm</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="category">Danh Mục</a>
+      </li>
+    </ul>
+  </div>
+  <div id="router" class="card-body">
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+<!-- <mat-tab-group #tab (selectedTabChange)="change(tab.selectedIndex)" mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4" >
+  
+  <mat-tab label="Danh Sách Sản Phẩm">
+    <router-outlet></router-outlet>
+  </mat-tab>
+    <mat-tab label="Danh Mục">
+      <router-outlet></router-outlet>
+    </mat-tab>
+   
+  
+</mat-tab-group> -->
+<!-- <mat-tab-group [selectedIndex]="selected.value"
+               (selectedIndexChange)="change($event)"
+               >
+  @for (tab of tabs; track tab; let index = $index) {
+    <mat-tab [label]="tab">
+            <router-outlet></router-outlet>
+    </mat-tab>
+  }
+</mat-tab-group> -->
+<mat-tab-group #tab [selectedIndex]="curentIndex" (selectedIndexChange)="change($event)">
+  <mat-tab label="Products List">
+  </mat-tab>
+  <mat-tab label="Category">
+  </mat-tab>
+</mat-tab-group>
+<div>
+  <router-outlet></router-outlet>
+</div>

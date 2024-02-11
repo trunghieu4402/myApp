@@ -1,0 +1,31 @@
+<div class="add_product">
+    <div class="header">
+      <div class="tiltle">
+        <h1 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+          Add Category</h1>
+      </div>
+      <div class="close">
+        <a routerLink="/admin/productmanagement/category">
+          <i class="bi bi-x-lg"></i>
+        </a>
+  
+      </div>
+    </div>
+    <form class="form" #formCate="ngForm">
+      <div class="information">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Name</span>
+          <input matInput [(ngModel)]="name" type="text" name="name" class="form-control" aria-label="Username"
+            aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+          <span class="input-group-text">Describe</span>
+          <textarea matInput  [(ngModel)]="describer" name="describe" required class="form-control"
+            aria-label="With textarea"></textarea>
+        </div>
+      </div>
+    <div class="btn">
+      <button type="button" class="btn btn-outline-primary" (click)="Save(formCate)">Save</button>
+      <button type="button" class="btn btn-outline-warning" (click)="Clear()">Clear</button>
+    </div>
+    </form>

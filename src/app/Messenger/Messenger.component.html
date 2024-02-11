@@ -1,0 +1,14 @@
+<div class="Messenger">
+  <div class="header">
+    <h1 >{{data.name}}</h1>
+  </div>
+  <div class="notifiaction">
+    <p>
+      {{data.messenger}}
+    </p>
+  </div>
+  <div class="btn">
+    <button type="button" id="ok" class="btn btn-outline-primary"(click)="OK(data.button)" cdkFocusInitial>{{data.button}}</button>
+    <button type="button" class="btn btn-outline-danger" (click)="Close()">Cancel</button>
+  </div>
+</div>

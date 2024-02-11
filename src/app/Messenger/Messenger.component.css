@@ -1,0 +1,31 @@
+.messenger
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.header
+{
+    color: red;
+    background-color: aliceblue;
+    text-align: center;
+    font-size: 10px;
+}
+.notifiaction
+{
+    text-align: center;
+    font-size: 19px;
+
+}
+.btn
+{
+    position:absolute;
+    bottom: 5px;
+    right: 5px;
+    gap: 20px;
+    display: flex;
+}
+.btn #ok
+{
+    right: 100px;
+}

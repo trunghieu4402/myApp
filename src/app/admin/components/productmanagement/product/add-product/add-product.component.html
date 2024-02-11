@@ -1,0 +1,75 @@
+<div class="add_product">
+  <div class="header">
+    <div class="tiltle">
+      <h1 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        Add Product</h1>
+    </div>
+    <div class="close">
+      <a routerLink="/admin/productmanagement/product">
+        <i class="bi bi-x-lg"></i>
+      </a>
+
+    </div>
+  </div>
+  <div class="form" [formGroup]="AddForm">
+    <div class="information">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+        <input matInput formControlName="pro_Name" required type="text" class="form-control" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Price</span>
+        <input matInput formControlName="pro_Price" required type="text" class="form-control"
+          aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Quantity</span>
+        <input matInput formControlName="pro_Quantity" required type="text" class="form-control" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Discount</span>
+        <input formControlName="pro_Discount" matInput type="text" class="form-control" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3" formGroupName="category">
+        <label class="input-group-text" for="inputGroupSelect01">Category</label>
+        <select formControlName="cate_id" class="form-select" required id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <option *ngFor="let i of ListCategory" value={{i.cate_id}}>{{i.cate_name}}</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-text">Describe</span>
+        <textarea matInput formControlName="pro_Describe" required class="form-control"
+          aria-label="With textarea"></textarea>
+      </div>
+
+    </div>
+    <div class="image">
+      <div>
+        <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)">
+      </div>
+
+      <div *ngIf="fileHandles" class="preview" >
+        <div class="img_pre" style="position: relative;" *ngFor="let i of fileHandles">
+          <i (click)="deleimg(i)" class="bi bi-x-circle" style="position: absolute; top: 0; right: 0;"></i>
+          <div>
+            <div>
+              <img style="width: 100px;" [src]="i.url" alt="">
+            </div>
+            <div style="text-align: center;">
+              <label for="">{{i.file.name}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn">
+    <button type="button" class="btn btn-outline-primary" (click)="Save()">Save</button>
+    <button type="button" class="btn btn-outline-warning" (click)="Clear()">Clear</button>
+  </div>
+</div>

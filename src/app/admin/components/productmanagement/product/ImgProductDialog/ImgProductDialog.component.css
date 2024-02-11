@@ -1,0 +1,38 @@
+
+.container
+{
+    background-color:var(--color-background);
+
+   
+}
+.title
+{
+    background-color:var(--color-background);
+}
+.image
+{
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(0rem 1rem 2rem var(--color-dark-variant));
+
+}
+.imgdetail
+{
+ 
+    display: grid;
+    grid-template-columns: repeat(3,100px);
+    gap: 30px;
+    background-color: #FFF;
+    
+}
+.image img
+{
+    width: 120px;
+    position: relative;
+
+}
+.image label
+{
+    bottom: 0;
+    text-align: center;
+}
