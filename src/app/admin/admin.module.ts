@@ -1,4 +1,4 @@
-import { AdminComponent } from './../../../../WEBBanHang/src/app/admin/admin.component';
+// import { AdminComponent } from './../../../../WEBBanHang/src/app/admin/admin.component';
 // import { ProductManagementComponent } from './../../../../WEBBanHang/src/app/admin/component/productManagement/productManagement.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,7 @@ import { EditCategoryComponent } from './components/productmanagement/category/E
 
 @NgModule({
   declarations: [
-    AdminComponent,
+    // AdminComponent,
     // ProductManagementComponent,
     ProductComponent,
     CategoryComponent,
