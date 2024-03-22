@@ -10,7 +10,8 @@
                             "img buy"
                             "des buy";
                             gap: 10px;
-
+    background-color: #ffffff;
+    border-radius: 5px;
 }
 .name
 {
@@ -31,16 +32,74 @@
 {
     grid-area: img;
     border: 1px solid black;
-    display: grid;
-    grid-template-columns:80% 15%;
-    grid-template-rows: 100% ;
-    gap: 2.5%;
+    /* display: grid; */
+    /* grid-template-columns:80% 15%;
+    grid-template-rows: 100% ; */
+    /* gap: 2.5%; */
     text-align: center;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    position: relative;
+}
+.controll
+{
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    color: #000000;
+    display: flex;
+    font-size: 40px;
+    
+}
+.pre-controll
+{
+    position: absolute;
 
+    left: 10px;
+}
+.next-controll
+{
+    position: absolute;
 
+    right: 10px;
+   
+}
+.main-img
+{
+    width: 80%;
+    height: 80%;
+    margin-left: 10%;
+    background-color: #ffffff;
+}
+.main-img img{
+    width: 60%;
+    height: 100%;
+}
+.listImg
+{
+    width: 100%;
+    height: 18%;
+
+    display: flex;
+    justify-content: center;
+    column-gap: 5px; 
+
+    margin-top: 1%;
+}
+.listImg div
+{
+
+    border: 1px solid black;
+}
+.listImg img
+{
+    width: 100%;
+    height: 100%;
+}
+.listImg div :hover
+{
+    cursor: pointer;
 }
 .buy
 {
@@ -56,25 +115,6 @@
 {
     border: 1px solid black;
     grid-area: des;
-}
-.img div img
-{
-    height: 80%;
-    border-radius: 5px;
-    border: 1px solid #FFF;
-}
-.listImg
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-.listImg img
-{
-    border-radius: 5px;
-    width: 60%;
-    gap: 3px;
 }
 .buy div
 {

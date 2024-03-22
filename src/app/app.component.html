@@ -74,7 +74,7 @@
     </div>
   </nav>
 </div> -->
-<div *ngIf="isCustomerLogin || !isCustomerLogin && !isAdminLogin" >
+<div style="position: relative;" *ngIf="isCustomerLogin || !isCustomerLogin && !isAdminLogin" >
   <mat-toolbar class="headerWeb">
     <mat-toolbar-row>
       <div class="header1">
@@ -97,8 +97,7 @@
               <input type="text" id="search" placeholder="Search" [(ngModel)]="key" (keyup)="keyup(key)">
               <button (click)="Xoa()" [hidden]="ishidden">
                 <i  class="bi bi-x"></i>
-              </button>
-              
+              </button> 
               <div class="data"  [style.display]="isDisable">
                 <span>Kết quả tìm kiếm</span>
                 <div class="listpro" *ngIf="Products.length!=0">
@@ -116,7 +115,7 @@
               
               </div>
           </div>
-            <a routerLink="/customer/">
+            <a routerLink="/customer/Order">
               <i class="bi bi-clipboard-check-fill"></i>
               <h3>Order</h3>
             </a>
@@ -144,7 +143,7 @@
         </div>
        </button>
       <mat-menu #afterMenu="matMenu" xPosition="after">
-        <button mat-menu-item>Information</button>
+        <button mat-menu-item [routerLink]="['customer/information',UserName]">Information</button>
         <button mat-menu-item (click)="Logout()"><i class="bi bi-box-arrow-right"></i>Logout</button>
       </mat-menu>
     </div>

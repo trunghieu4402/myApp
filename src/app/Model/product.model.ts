@@ -3,6 +3,7 @@ import { FileHandle } from './file-handle.model';
 // import { ProductComponent } from './../admin/components/productmanagement/product/product.component';
 export interface product 
 {
+   
     pro_id:number |null;
     pro_Name:string;
     pro_Price:number;

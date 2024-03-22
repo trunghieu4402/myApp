@@ -1,7 +1,7 @@
 <div class="containerCart">
   <div class="Cart" *ngIf="isCustomerLogin">
     <h2>Your Cart</h2>
-    <mat-checkbox style="text-align: start;justify-content: start; width: 100%;" color="warn" [(ngModel)]="CheckAll" (ngModelChange)="PickAllItem($event)"  >Pick All</mat-checkbox>
+    <mat-checkbox style="text-align: start;justify-content: start; width: 100%;" [disabled]="PickALl"  color="warn" [(ngModel)]="CheckAll" (ngModelChange)="PickAllItem($event)">Pick All</mat-checkbox>
     <div class="item" *ngFor="let i of ListItems">
 
       <mat-checkbox color="warn" [(ngModel)]="i.checked" (ngModelChange)="update($event,i)"></mat-checkbox>
@@ -29,7 +29,7 @@
         'VND'})}}</label>
         <p></p>
     
-      <button type="button" class="btn btn-outline-primary" [disabled]="DatHang" (click)="Order()">Đặt Hàng</button>
+      <button type="button" class="btn btn-outline-primary" routerLink="Payment-infor" [disabled]="DatHang" (click)="Order()">Đặt Hàng</button>
     </div>
   <div *ngIf="!isCustomerLogin">
     <h3>You Shoud Login</h3>

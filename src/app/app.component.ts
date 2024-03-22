@@ -82,16 +82,9 @@ user: any;
               private service:BaseService,
               private imgservice:ImageProcessService){}
   ngOnInit(): void {
-    // this.router.navigate([localStorage.getItem('url')]);
-    // window.localStorage.setItem('url','http://localhost:4200/');
     
-    this.title="Dashborad"
-    // document.querySelectorAll('a').forEach((item) => {
-    //   item.classList.remove('active');
-    // });
-    
+    // this.title="Dashborad"
     this.authenticate();
-    
   }
   authenticate()
   {

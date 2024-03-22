@@ -1,0 +1,153 @@
+.PaymentInfor
+{
+    width: 60%;
+    margin-left: 20%;
+    border-radius: 5px;
+    height: 1000px;
+    /* min-height: 400px;
+    max-height: 1200px; */
+    background-color: #FFF;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.ListItem
+{
+    width: 80%;
+
+    margin-left: 10%;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+.CustomerInfor
+{
+    width: 80%;
+
+    margin-left: 10%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.CustomerAddress
+{
+    width: 80%;
+
+    margin-left: 10%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: aqua;
+}
+  .Order
+{  
+    height: 80px;
+   width: 60%;
+    margin-left: 20%;
+    bottom: 0px;
+    position: fixed;
+    border-radius: 10px 10px 0px 0px;
+    background-color: rgb(255, 255, 255);
+    filter: drop-shadow(0rem 1rem 2rem var(--color-dark-variant));
+     
+    font-size: 18px;
+}
+.Order button
+{
+    align-items: end;
+    justify-content: end;
+    text-align: center;
+    width: 40%;
+    margin-left: 60%;
+}
+.item
+{
+    display: grid;
+    grid-template-columns:70% 10% 20%;
+    text-align: center;
+    justify-content: center;
+    /* grid-row: 10px; */
+    margin: 5px 0px 5px 0px;
+
+    background-color: #FFF;
+   
+    border: 1px solid black;
+    border-left:none ;
+    border-right: none;
+    /* filter: drop-shadow(0rem 1rem 2rem var(--color-dark-variant)); */
+}
+.item input
+{
+    width: 30px;
+    font-size: 20px;
+     border: none;
+      text-align: center;
+}
+.item div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    border: none;
+}
+.item a
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: start;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+}
+.item a img
+{
+    grid-row: 1/4;
+}
+.item a p
+{
+    text-align: start;
+    justify-content: center;
+}
+.form-check
+{
+    border: 1px solid black;
+    display: grid;
+    border-left: none;
+    border-right:none ;
+
+    grid-template-columns:10% 70% 20%;
+}
+.form-check-input
+{
+    border: 1px solid black;
+    font-size: 15px;
+    margin-top: 45%;
+    margin-left: 3px;
+}
+.btnXoa
+{
+ 
+    font-size: 15px;
+    margin-top: 25%;
+    /* margin-top: 45%;
+    margin-left: 3px;   */
+   
+}
+.customerLocation
+{
+    margin-top: 40px;
+   
+    
+}

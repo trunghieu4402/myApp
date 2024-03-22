@@ -32,10 +32,8 @@ constructor( private http:HttpClient) { }
  }
  addProduct(bodyRequest: any): Observable<any>
  {
+  console.log(bodyRequest);
   const headers = this.createAuthorizationHeader();
-  // const body=JSON.stringify(bodyRequest);
-  // console.log(bodyRequest.getAll('product'));
-  // console.log(bodyRequest.getAll('ImageFile'));
   return this.http.post(this.Base_URL_Product +'/createProduct',bodyRequest,{headers:headers});
  }
  deleteProduct(id:any)

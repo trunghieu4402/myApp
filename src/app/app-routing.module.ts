@@ -8,19 +8,24 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DetailProductComponent } from './DetailProduct/DetailProduct.component';
 import { CartComponent } from './Cart/Cart.component';
+import { UserInformationComponent } from './UserInformation/UserInformation.component';
+import { PaymentInforComponent } from './PaymentInfor/PaymentInfor.component';
+import { OrderComponent } from './Order/Order.component';
 
 const routes: Routes = [
   {path: "home",component: HomeComponent},
-  { path: "customer", loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) }, 
+  { path: "customer", 
+  loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)}, 
   {path:"detail/:id",component:DetailProductComponent},
+  
+  {path:"",component:UserInformationComponent},
 { path: "admin", loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 {
   path:"signup", component:LogComponent,
   children:[{path:"",component:SignUpComponent}]
 },
-{
-  path:"Cart",component:CartComponent
-},
+
+{path:"Cart/Payment-infor",component:PaymentInforComponent},
 {
   path:"login", component:LogComponent,
   children:[{path:"",component:LoginComponent}]

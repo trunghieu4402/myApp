@@ -55,6 +55,24 @@ static getUserId():any
   }
   return null;
 }
+static getEmail():any
+{
+  let user = this.getUser();
+  if(user!==null)
+  {
+    return user.email;
+  }
+  return null;
+}
+static getPhoneNumber():any
+{
+  let user = this.getUser();
+  if(user!==null)
+  {
+    return user.phoneNumber;
+  }
+  return null;
+}
 static getUserName():any
 {
   let user = this.getUser();

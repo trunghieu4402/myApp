@@ -15,6 +15,7 @@ import { blob } from 'stream/consumers';
   styleUrl: './add-product.component.css'
 })
 export class AddProductComponent {
+  imgdefout: File = new File([], 'noimg.jpg', { type: 'image/jpeg' });
   ListCategory:any;
 AddForm !: FormGroup;
 category!: FormGroup;
@@ -38,6 +39,7 @@ console.log(event);
 if(event.target.files)
 {
   const file =event.target.files[0];
+
   const fileHandle: FileHandle=
   {
     file: file,
@@ -91,23 +93,19 @@ this.fileHandles=[];
   }
 Save(){
   this.product= this.AddForm.value;
-  if(this.fileHandles==null)
+  console.log(this.AddForm.value);
+  
+  if(this.fileHandles.length==0)
   {
-  const file = '/assets/images/nomage.jpg';
-  fetch(file)
-  .then(res=>res.blob())
-  .then(blob=>
-    {
-      const fileObj = new File([blob], 'nomage.jpg');
-      const fileHandle: FileHandle=
+    console.log(this.imgdefout);
+  const fileHandle: FileHandle=
   {
-    file: fileObj,
+    file: this.imgdefout,
     url: this.sanitizer.bypassSecurityTrustUrl(
-      window.URL.createObjectURL(fileObj),
+      window.URL.createObjectURL(this.imgdefout),
     )
   }
   this.fileHandles.push(fileHandle);
-    })
   
   }
   console.log(this.fileHandles);

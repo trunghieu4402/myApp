@@ -3,14 +3,20 @@
     <label>{{pro.pro_Name}}</label>
   </div>
   <div class="img">
-    <div>
-      <img style="width: 60%;" [src]="pro.products_img[0].url" alt="">
+    <div class="main-img">
+      <img [src]="currentImg.url" alt="">
     </div>
-    <div class="listImg">
-      <img *ngFor="let item of pro.products_img"  [src]="item.url" alt="">
+    <div class="controll">
+      <div class="pre-controll" (click)="Pre()"><i class="bi bi-chevron-left"></i></div>
+      <div class="next-controll" (click)="Next()"><i class="bi bi-chevron-right"></i></div>
+    </div>
+    <div class="listImg" >
+      <div *ngFor="let item of ListImg" (click)="Pick(item)">
+        <img  [src]="item.url" alt="">
+      </div>
     </div>
   </div>
-  <div class="des">description</div>
+  <div class="des">{{pro.pro_Describe}}</div>
   <div class="buy">
     <p style="text-decoration: line-through;" ng *ngIf="pro.pro_Discount!=0">Giá Cũ : {{pro.pro_Price.toLocaleString ('vi-VN', {style: 'currency', currency: 'VND'})}}</p>
     <p ng *ngIf="pro.pro_Discount==0">Giá : {{pro.pro_Price.toLocaleString ('vi-VN', {style: 'currency', currency: 'VND'})}}</p>
@@ -20,7 +26,7 @@
         Add to cart
         <i class="bi bi-cart-plus"></i>
       </button>
-      <button type="button" class="btn btn-outline-primary">Buy Now</button>
+      <button type="button" class="btn btn-outline-primary" (click)="BuyNow(pro.pro_id)">Buy Now</button>
     </div>
   </div>
 </div>

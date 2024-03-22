@@ -1,3 +1,4 @@
+
 import { product } from './Model/product.model';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
@@ -19,9 +20,14 @@ import { ProductmanagementComponent } from './admin/components/productmanagement
 import { AuthService } from './service/Authenticate/Auth.service';
 import { UserStorageService } from './service/storage/user-storage.service';
 import { DetailProductComponent } from './DetailProduct/DetailProduct.component';
+
+import { PaymentInforComponent } from './PaymentInfor/PaymentInfor.component';
+import { UserInformationComponent } from './UserInformation/UserInformation.component';
+import { AddLocationComponent } from './PaymentInfor/AddLocation/AddLocation.component';
 import { CartComponent } from './Cart/Cart.component';
+import { OrderComponent } from './Order/Order.component';
 @NgModule({
-  declarations: [			
+  declarations: [					
     AppComponent,
     LogComponent,
     LoginComponent,
@@ -29,7 +35,11 @@ import { CartComponent } from './Cart/Cart.component';
     HomeComponent,
     ProductmanagementComponent,
     DetailProductComponent,
-      CartComponent
+      CartComponent,
+      UserInformationComponent,
+      PaymentInforComponent,
+      AddLocationComponent,
+      OrderComponent,
    ],
   imports: [
     AdminModule,
@@ -48,6 +58,7 @@ import { CartComponent } from './Cart/Cart.component';
     AuthService,
     UserStorageService,
     HttpHeaderResponse,
+    // LocationAPiService,
   ],
   bootstrap: [AppComponent]
 })

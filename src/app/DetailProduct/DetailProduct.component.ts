@@ -14,15 +14,58 @@ import { NotifiService } from '../notifi.service';
   styleUrls: ['./DetailProduct.component.css']
 })
 export class DetailProductComponent implements OnInit {
+BuyNow(id: number|null) {
+  
+}
+Pre() {
+  // console.log(this.currentImg);
+
+    for(let i=0;i<this.ListImg?.length;i++)
+    {
+      
+      if(this.ListImg[i]===this.currentImg)
+      {
+        if(i==0)
+      {
+        i=this.ListImg.length;
+      }
+        this.currentImg=this.ListImg[i-1];
+      }
+    }
+}
+Next() {
+  for(let j=0; j<this.ListImg?.length;j++)
+  {
+    if(this.ListImg[j]===this.currentImg)
+    {
+      if(j==this.ListImg.length-1)
+      { 
+        this.currentImg=this.ListImg[0];
+        return;
+      }
+      else
+      {
+        this.currentImg=this.ListImg[j+1];
+        return;
+      }
+      
+    }
+
+  }
+}
+Pick(img: any) {
+this.currentImg=img;
+console.log(img);
+}
+  ListImg: any[] = [];
+  currentImg:any;
 AddToCart(arg0: number|null) {
-  let id_cus=UserStorageService.getUserId();
-  console.log(id_cus);
   console.log(arg0);
-this.cusservice.addtoCart(id_cus,arg0).subscribe(
+this.cusservice.addtoCart(arg0).subscribe(
   {
     next:(res:any)=>
     {
-      this.notifi.setNotifi("add to cart complete","Close");
+      this.notifi.setNotifi(res,"Close");
 
     },
     error:(err:any)=>
@@ -57,6 +100,9 @@ this.cusservice.addtoCart(id_cus,arg0).subscribe(
         {
           this.pro=pro
           console.log(pro);
+          this.ListImg=pro.products_img;
+          console.log(this.ListImg.length);
+          this.currentImg=this.ListImg[0];
         })
 
       })

@@ -1,0 +1,47 @@
+<div  class="PaymentInfor">
+  <div class="ListItem">
+    <h1>Danh Sách Sản Phẩm</h1>
+      <div class="item" *ngFor="let i of ListItem">
+        <a [routerLink]="['/detail',i.product.pro_id]" style="color: black;">
+          <img style="width: 100px;" [src]="i.product.products_img[0].url" alt="">
+          <p style="margin-top: 20px;">{{i.product.pro_Name}}</p>
+          <!-- <p style="text-decoration: line-through;"> Giá Cũ : {{i.product.pro_Price.toLocaleString ('vi-VN', {style:
+            'currency', currency: 'VND'})}}</p> -->
+           
+          <p style="color: rgb(171, 0, 0);"> {{(i.product.pro_Price -
+            (i.product.pro_Discount/100*i.product.pro_Price)).toLocaleString ('vi-VN', {style: 'currency', currency:
+            'VND'})}}</p>
+        </a>
+        <input readonly type="text" value={{i.quantity}}>
+        <a style="color: rgb(171, 0, 0); "> {{((i.product.pro_Price -
+          (i.product.pro_Discount/100*i.product.pro_Price))*i.quantity).toLocaleString ('vi-VN', {style: 'currency', currency:
+          'VND'})}}</a>
+      </div>
+    </div>
+<div class="customerLocation">
+  <h1>Thông Tin Nhận Hàng</h1>
+  <div class="form-check" *ngFor="let i of CustomerLocation">
+    <input class="form-check-input" type="radio" [checked]="i===currentInfor" (change)="Nhan(i)" name="flexRadioDefault" id="flexRadioDefault1">
+    <div>
+      <p class="form-check-label" for="flexRadioDefault1">
+        Tên Người Nhận: {{i.name}}
+        </p>
+        <p>Địa Chỉ : {{i.streetNumber}},{{i.town}},{{i.district}},{{i.province}}</p>
+        <p>Số Điện Thoại: {{i.phoneNumber}}</p>
+    </div>
+    <button mat-button class="btnXoa" color="warn" (click)="RemoveAddress(i)"><i class="bi bi-trash3"></i>Xóa</button>
+  </div>
+</div>
+<button class="AddLocation" (click)="AddLocation()" mat-button color="primary">
+  <i style="font-size: 40px;" class="bi bi-plus-square-dotted"></i>
+</button>
+</div>
+<div class="Order">
+  <label style="font-size: 20px; margin-left: 5px; margin-top: 5px;">Tạm Tính :  {{Total_Price.toLocaleString ('vi-VN', {style: 'currency', currency:
+    'VND'})}}</label>
+    <p></p>
+
+  <button type="button" class="btn btn-outline-warning"(click)="Order()">Đặt Hàng</button>
+</div>
+
+

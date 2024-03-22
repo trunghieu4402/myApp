@@ -48,15 +48,15 @@ dialogRef.afterClosed().subscribe(res=>
         {
           next:(response:any)=>
           {
-            this.snackBar.open('Delete Successfull', 'OK', {duration:2000 , panelClass:'secondary',
+            this.snackBar.open(response, 'OK', {duration:2000 , panelClass:'secondary',
             horizontalPosition:'center',
             verticalPosition: 'top',
             })
           },
           error:(err)=>
           {
-            console.log('delete error: '+err)
-                  this.snackBar.open('Delete Failed', 'close', {duration:2000 , panelClass:'secondary',
+            console.log(err)
+                  this.snackBar.open(err, 'close', {duration:2000 , panelClass:'secondary',
               horizontalPosition:'center',
               verticalPosition: 'top',
             });

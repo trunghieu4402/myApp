@@ -32,6 +32,8 @@ import { FormControl } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 
 
@@ -55,6 +57,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatDialogModule,
     MatGridListModule,
     MatCheckboxModule,
+    MatAutocompleteModule,
+    MatRadioModule,
 
 
 

@@ -52,6 +52,9 @@
       <div>
         <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)">
       </div>
+      <!-- <div>
+        <img style="width: 100px;" src={{linkimg}} alt="">
+      </div> -->
 
       <div *ngIf="fileHandles" class="preview" >
         <div class="img_pre" style="position: relative;" *ngFor="let i of fileHandles">

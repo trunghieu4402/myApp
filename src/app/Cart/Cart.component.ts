@@ -1,28 +1,23 @@
+import { PaymentInforService } from './../service/Payment/PaymentInfor.service';
 import { product } from './../Model/product.model';
 import { CustomerService } from './../service/CustomerService/Customer.service';
 import { Component, OnInit } from '@angular/core';
 import { UserStorageService } from '../service/storage/user-storage.service';
 import { ImageProcessService } from '../service/imgproces/ImageProcess.service';
 import { NotifiService } from '../notifi.service';
+import { Item } from '../Model/Item.model';
+import { FormsModule } from '@angular/forms';
 // import { error } from 'node:console';
-
-export interface Item{
-  product:product;
-  checked:boolean;
-  quantity:any;
-}
-
-
 @Component({
   selector: 'app-Cart',
   templateUrl: './Cart.component.html',
   styleUrls: ['./Cart.component.css']
 })
 export class CartComponent implements OnInit {
-  user_id=UserStorageService.getUserId();
+  PickALl:boolean=false;
 
 remove(i:Item) {
-  this.service.RemoveItem(this.user_id,i.product.pro_id).subscribe(
+  this.service.RemoveItem(i.product.pro_id).subscribe(
     {next:(data:any)=>
       {
         this.ListItems.forEach(item=>
@@ -63,7 +58,7 @@ DeleItem(pro_id:any)
     this.ReloadTotalPrice();
 }
 Additem(item:Item) {
-  this.service.addtoCart(this.user_id,item.product.pro_id).subscribe(
+  this.service.addtoCart(item.product.pro_id).subscribe(
     {
       next:(res:any)=>
       {
@@ -87,10 +82,10 @@ Additem(item:Item) {
 }
 RemoveItem(i: Item) {
   
-  this.service.DeleAllPro(this.user_id,i.product.pro_id).subscribe(
+  this.service.DeleAllPro(i.product.pro_id).subscribe(
     { next:(res:any)=>
       {
-        this.notify.setNotifi("Xoá Thành Công","Close");
+        this.notify.setNotifi(res,"Close");
         this.DeleItem(i.product.pro_id);
       },
       error:(err:any)=>
@@ -144,7 +139,16 @@ ReloadTotalPrice()
   }
 }
 Order() {
-  console.log(this.DatHang);
+   let ListI :Item[]=[];
+   this.ListItems.forEach(i=>{
+    if(i.checked==true)
+    {
+      ListI.push(i);
+    }
+   })
+   this.payment.SetItem(ListI,this.Total_Price);
+   localStorage.setItem("List",JSON.stringify(ListI));
+   localStorage.setItem("total_price",JSON.stringify(this.Total_Price));
 }
   Total_Price:number=0;
   n:number=0;
@@ -195,6 +199,7 @@ update(event: any,item:Item ) {
     private service:CustomerService,
     private imgprocess:ImageProcessService,
     private notify:NotifiService,
+    private payment: PaymentInforService,
   ){ }
   Cart:any;
   isCustomerLogin=UserStorageService.isCustomerLogin();
@@ -206,7 +211,8 @@ update(event: any,item:Item ) {
   listItem:product[]=[];
   fillCart()
   {
-    this.service.getCart(this.userid)
+ 
+    this.service.getCart()
     .subscribe((data: any)=>  
       {
         
@@ -220,9 +226,6 @@ update(event: any,item:Item ) {
            }
           this.ListItems.push(item);
           console.log(this.ListItems);
-          
-
-          
         });
         this.Cart= data;
         this.Cart.cartItems.product=this.listItem;
